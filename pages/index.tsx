@@ -1,6 +1,5 @@
 import * as React from "react"
 import Link from "next/link"
-import {Grommet} from "grommet"
 import Layout from "../components/Layout"
 import {NextPage} from "next"
 
