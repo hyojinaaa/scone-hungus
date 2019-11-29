@@ -8,10 +8,7 @@ type Props = {
 	title?: string
 }
 
-const Layout: React.FunctionComponent<Props> = ({
-	children,
-	title = "Scone Hungus"
-}) => (
+const Layout: React.FunctionComponent<Props> = ({children, title = "Scone Hungus"}) => (
 	<Grommet theme={theme} full>
 		<Head>
 			<title>{title}</title>
@@ -24,20 +21,27 @@ const Layout: React.FunctionComponent<Props> = ({
 					<a>Home</a>
 				</Link>{" "}
 				|{" "}
-				<Link href="/about">
-					<a>About</a>
+				<Link href="/cheese-scones">
+					<a>Cheese scones</a>
 				</Link>{" "}
 				|{" "}
-				<Link href="/users">
-					<a>Users List</a>
+				<Link href="/non-cheese-scones">
+					<a>Non-cheese scones</a>
 				</Link>
 			</nav>
 		</header>
-		{children}
+		<main>{children}</main>
 		<footer>
 			<hr />
 			<span>@@@@ Footer @@@@</span>
 		</footer>
+		<style global jsx>{`
+			header,
+			main,
+			footer {
+				padding: 24px;
+			}
+		`}</style>
 	</Grommet>
 )
 

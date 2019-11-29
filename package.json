@@ -8,6 +8,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "grommet": "^2.7.10",
     "grommet-icons": "^4.3.0",
     "grommet-styles": "^0.2.0",

@@ -4,7 +4,11 @@
 //
 // import User from 'path/to/interfaces';
 
-export type User = {
-  id: number
-  name: string
+export interface Scone {
+	placeName: string
+	placeAddress: string
+	image: string
+	rating: number
+	flavour?: string
+	note: string
 }

@@ -83,7 +83,7 @@ export const theme = {
       "status-ok": "#00C781",
       "status-unknown": "#CCCCCC",
       "status-disabled": "#CCCCCC",
-      "background": "#444444",
+      "background": "#fff",
       "neutral-5": "#e82121"
     },
     "animation": {
