@@ -1,5 +1,6 @@
 import * as React from "react"
 import {Scone} from "../interfaces"
+import {Anchor} from "grommet"
 
 type Props = {
 	scones: Scone[]
@@ -12,7 +13,7 @@ const List: React.FunctionComponent<Props> = ({scones}) => (
 				<div className="image" />
 				<div className="text">
 					<h3>{placeName}</h3>
-					<a href={placeAddress}>Location</a>
+					<Anchor href={placeAddress} label="Location" />
 					{flavour && (
 						<p>
 							<strong>Flavour: </strong>
@@ -21,7 +22,7 @@ const List: React.FunctionComponent<Props> = ({scones}) => (
 					)}
 					<p>
 						<strong>Rating: </strong>
-						{rating}
+						{rating} / 5
 					</p>
 					{note && note}
 				</div>

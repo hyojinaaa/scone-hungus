@@ -1,14 +1,16 @@
 import * as React from "react"
-import Link from "next/link"
 import Head from "next/head"
-import {Grommet} from "grommet"
+import {Grommet, Anchor} from "grommet"
 import {theme} from "./Theme"
 
 type Props = {
 	title?: string
 }
 
-const Layout: React.FunctionComponent<Props> = ({children, title = "Scone Hungus"}) => (
+const Layout: React.FunctionComponent<Props> = ({
+	children,
+	title = "Scone Hungus"
+}) => (
 	<Grommet theme={theme} full>
 		<Head>
 			<title>{title}</title>
@@ -17,29 +19,28 @@ const Layout: React.FunctionComponent<Props> = ({children, title = "Scone Hungus
 		</Head>
 		<header>
 			<nav>
-				<Link href="/">
-					<a>Home</a>
-				</Link>{" "}
-				|{" "}
-				<Link href="/cheese-scones">
-					<a>Cheese scones</a>
-				</Link>{" "}
-				|{" "}
-				<Link href="/non-cheese-scones">
-					<a>Non-cheese scones</a>
-				</Link>
+				<Anchor href="/" label="Home" /> |{" "}
+				<Anchor href="/cheese-scones" label="Cheese scones" /> |{" "}
+				<Anchor href="/non-cheese-scones" label="Non-cheese scones" />
 			</nav>
 		</header>
 		<main>{children}</main>
 		<footer>
 			<hr />
-			<span>@@@@ Footer @@@@</span>
+			<p>© 2019 SconeHungus</p>
+			<br />
+			<a href="mailto:muffinseoul@gmail.com" target="_blank" rel="noopener">
+				Add my 2c
+			</a>
 		</footer>
 		<style global jsx>{`
 			header,
 			main,
 			footer {
 				padding: 24px;
+			}
+			footer {
+				text-align: center;
 			}
 		`}</style>
 	</Grommet>
