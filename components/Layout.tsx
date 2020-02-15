@@ -3,6 +3,7 @@ import Head from "next/head"
 import {Grommet, Anchor, Accordion, AccordionPanel} from "grommet"
 import {useMediaQuery} from "react-responsive"
 import {theme} from "./Theme"
+import {initGA, logPageView} from "../utils/analytics"
 
 type Props = {
 	title?: string
@@ -15,6 +16,15 @@ const Layout: React.FunctionComponent<Props> = ({
 	const isDesktopOrLaptop = useMediaQuery({
 		query: "(min-device-width: 1224px)"
 	})
+	const [isGAInitialised, setIsGAInitialised] = React.useState(false)
+
+	React.useEffect(() => {
+		if (!isGAInitialised) {
+			initGA()
+			setIsGAInitialised(true)
+		}
+		logPageView()
+	}, [])
 
 	return (
 		<Grommet theme={theme} full>

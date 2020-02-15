@@ -5,6 +5,7 @@ import Loader from "../components/Loader"
 import {NextPage} from "next"
 import {cheeseScones, nonCheeseScones} from "../data/scones"
 import {Scone} from "../interfaces"
+import {logEvent} from "../utils/analytics"
 
 const IndexPage: NextPage = () => {
 	const sconeArray = [...cheeseScones, ...nonCheeseScones]
@@ -19,6 +20,7 @@ const IndexPage: NextPage = () => {
 			setLoadingState(false)
 			setRandomScone(scone)
 		}, 500)
+		logEvent("click", "show me another scone")
 	}
 
 	return (
