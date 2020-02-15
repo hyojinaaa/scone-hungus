@@ -265,7 +265,7 @@ export const theme = {
     "icons": {
       "collapse": FormUp,
       "expand": FormDown,
-      "color": "#e82121",
+      "color": "#444",
     },
   },
   "anchor": {

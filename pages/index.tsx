@@ -76,7 +76,6 @@ const IndexPage: NextPage = () => {
 			</div>
 			<style jsx>{`
 				.randomSconeContainer {
-					width: 500px;
 					max-width: 500px;
 					height: 500px;
 					margin: 32px auto;
