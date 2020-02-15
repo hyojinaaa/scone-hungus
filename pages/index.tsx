@@ -1,5 +1,5 @@
 import * as React from "react"
-import {Heading, Button, Anchor} from "grommet"
+import {Button, Anchor} from "grommet"
 import Layout from "../components/Layout"
 import Loader from "../components/Loader"
 import {NextPage} from "next"
@@ -7,12 +7,12 @@ import {cheeseScones, nonCheeseScones} from "../data/scones"
 import {Scone} from "../interfaces"
 
 const IndexPage: NextPage = () => {
-	const [randomScone, setRandomScone] = React.useState<Scone | undefined>()
+	const sconeArray = [...cheeseScones, ...nonCheeseScones]
+	const scone = sconeArray[Math.floor(Math.random() * sconeArray.length)]
+	const [randomScone, setRandomScone] = React.useState<Scone | undefined>(scone)
 	const [loadingState, setLoadingState] = React.useState<boolean>(false)
 
 	const displayRandomScone = () => {
-		const sconeArray = [...cheeseScones, ...nonCheeseScones]
-		const scone = sconeArray[Math.floor(Math.random() * sconeArray.length)]
 		setLoadingState(true)
 		setRandomScone(undefined)
 		setTimeout(() => {
@@ -23,9 +23,30 @@ const IndexPage: NextPage = () => {
 
 	return (
 		<Layout title="Scone Hungus">
-			<Heading>Kia ora, Scone Hungus 👋</Heading>
-			<div style={{textAlign: "center", padding: "24px"}}>
-				<Button primary label="Show me a scone" onClick={displayRandomScone} />
+			<div style={{borderBottom: "1px solid #444"}}>
+				<p
+					style={{
+						margin: "48px auto 16px",
+						textAlign: "center",
+						fontSize: "40px",
+						fontWeight: "bolder",
+						lineHeight: "50px",
+						maxWidth: "650px"
+					}}>
+					<i>"A good scone is crispy outside, and soft inside."</i>
+				</p>
+
+				<p
+					style={{
+						textAlign: "center",
+						marginBottom: "48px"
+					}}>
+					— SconeHungus
+				</p>
+			</div>
+
+			<div style={{textAlign: "center", padding: "60px 24px"}}>
+				<h2>Today's scone</h2>
 				<div className="randomSconeContainer">
 					{loadingState && <Loader />}
 					{randomScone && (
@@ -47,6 +68,11 @@ const IndexPage: NextPage = () => {
 						</div>
 					)}
 				</div>
+				<Button
+					primary
+					label="Show me another one"
+					onClick={displayRandomScone}
+				/>
 			</div>
 			<style jsx>{`
 				.randomSconeContainer {
@@ -54,7 +80,6 @@ const IndexPage: NextPage = () => {
 					max-width: 500px;
 					height: 500px;
 					margin: 32px auto;
-					border: 1px solid #444;
 					display: flex;
 					align-items: center;
 					justify-content: center;
