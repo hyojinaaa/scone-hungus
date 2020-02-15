@@ -1,13 +1,6 @@
 import * as React from "react"
 import Head from "next/head"
-import {
-	Heading,
-	Grommet,
-	Anchor,
-	Accordion,
-	AccordionPanel,
-	Button
-} from "grommet"
+import {Grommet, Anchor, Accordion, AccordionPanel} from "grommet"
 import {useMediaQuery} from "react-responsive"
 import {theme} from "./Theme"
 
@@ -82,29 +75,9 @@ const Layout: React.FunctionComponent<Props> = ({
 						</AccordionPanel>
 					</Accordion>
 				)}
-				<div
-					style={{
-						textAlign: "center",
-						backgroundColor: "#444",
-						color: "white",
-						padding: "48px 0"
-					}}>
-					<Heading>Scone Hungus</Heading>
-
-					<p style={{padding: "0 16px"}}>
-						The most popular scone rating website in Wellington
-					</p>
-
-					<Button
-						style={{backgroundColor: "white", margin: "24px auto"}}
-						label="Geeze at the cheese"
-						href="/cheese-scones"
-					/>
-				</div>
 			</header>
-			<main>{children}</main>
+			<main style={{padding: "0"}}>{children}</main>
 			<footer>
-				<hr />
 				<p>© 2020 SconeHungus</p>
 			</footer>
 			<style global jsx>{`
@@ -114,6 +87,8 @@ const Layout: React.FunctionComponent<Props> = ({
 					padding: 24px;
 				}
 				footer {
+					background-color: #444;
+					color: white;
 					text-align: center;
 				}
 			`}</style>

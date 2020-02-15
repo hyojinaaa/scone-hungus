@@ -1,5 +1,5 @@
 import * as React from "react"
-import {Button, Anchor} from "grommet"
+import {Button, Anchor, Heading} from "grommet"
 import Layout from "../components/Layout"
 import Loader from "../components/Loader"
 import {NextPage} from "next"
@@ -18,11 +18,30 @@ const IndexPage: NextPage = () => {
 		setTimeout(() => {
 			setLoadingState(false)
 			setRandomScone(scone)
-		}, 3000)
+		}, 500)
 	}
 
 	return (
 		<Layout title="Scone Hungus">
+			<div
+				style={{
+					textAlign: "center",
+					backgroundColor: "#444",
+					color: "white",
+					padding: "48px 0"
+				}}>
+				<Heading>Scone Hungus</Heading>
+
+				<p style={{padding: "0 16px"}}>
+					The most popular scone rating website in Wellington
+				</p>
+
+				<Button
+					style={{backgroundColor: "white", margin: "24px auto"}}
+					label="Geeze at the cheese"
+					href="/cheese-scones"
+				/>
+			</div>
 			<div style={{borderBottom: "1px solid #444"}}>
 				<p
 					style={{
@@ -51,13 +70,38 @@ const IndexPage: NextPage = () => {
 					{loadingState && <Loader />}
 					{randomScone && (
 						<div className="scone">
-							<img src={`/${randomScone.image}`} />
+							{randomScone.image ? (
+								<img src={`/${randomScone.image}`} />
+							) : (
+								<div
+									style={{
+										width: "300px",
+										height: "300px",
+										backgroundColor: "yellow",
+										textAlign: "center",
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+										margin: "0 auto"
+									}}>
+									<p>No image</p>
+								</div>
+							)}
 							<h3>{randomScone.placeName}</h3>
-							<Anchor href={randomScone.placeAddress} label="Location" />
-							{randomScone.flavour && (
+							<Anchor
+								href={randomScone.placeAddress}
+								label="Find location"
+								style={{textDecoration: "underline", color: "#444"}}
+							/>
+							{randomScone.flavour ? (
 								<p>
 									<strong>Flavour: </strong>
 									{randomScone.flavour}
+								</p>
+							) : (
+								<p>
+									<strong>Flavour: </strong>
+									Cheese
 								</p>
 							)}
 							<p>
@@ -77,7 +121,6 @@ const IndexPage: NextPage = () => {
 			<style jsx>{`
 				.randomSconeContainer {
 					max-width: 500px;
-					height: 500px;
 					margin: 32px auto;
 					display: flex;
 					align-items: center;
