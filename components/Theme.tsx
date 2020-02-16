@@ -285,7 +285,7 @@ export const theme = {
   "button": {
     "border": {
       "width": "2px",
-      "radius": "0px"
+      "radius": "10px"
     },
     "primary": {
         "dark": "#4eadeb",
@@ -297,7 +297,7 @@ export const theme = {
     "minWidth": "96px",
     "maxWidth": "384px",
     "padding": {
-      "vertical": "4px",
+      "vertical": "8px",
       "horizontal": "22px"
     }
   },
