@@ -2,17 +2,14 @@ import * as React from "react"
 import {Scone} from "../interfaces"
 import {Anchor} from "grommet"
 import {Star} from "grommet-icons"
-import {useMediaQuery} from "react-responsive"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 type Props = {
 	scones: Scone[]
 }
 
 const List: React.FunctionComponent<Props> = ({scones}) => {
-	const isMobile = useMediaQuery({query: "(max-width: 767px)"})
-	const isMobileDevice = useMediaQuery({
-		query: "(max-device-width: 767px)"
-	})
+	const isNotMobile = useMediaQuery("(min-width:600px)")
 
 	return (
 		<ul style={{paddingLeft: 0, marginTop: 0}}>
@@ -22,103 +19,20 @@ const List: React.FunctionComponent<Props> = ({scones}) => {
 					({placeName, placeAddress, flavour, rating, image, note}, index) => (
 						<li
 							key={placeName}
-							style={
-								isMobile || isMobileDevice
-									? {
-											borderBottom:
-												index !== scones.length - 1 ? "1px solid #444" : "none",
-											paddingBottom: "24px",
-											marginBottom: "24px",
-											listStyle: "none"
-									  }
-									: {
-											borderBottom:
-												index !== scones.length - 1 ? "1px solid #444" : "none",
-											paddingBottom: "24px",
-											marginBottom: "24px",
-											listStyle: "none",
-											display: "flex"
-									  }
-							}>
+							className={isNotMobile ? "listStyleDesktop" : "listStyleMobile"}>
 							{image ? (
 								<div
-									style={
-										isMobile || isMobileDevice
-											? {
-													width: "100%",
-													height: "300px",
-													backgroundColor: "yellow",
-													backgroundImage: `url(/${image})`,
-													backgroundRepeat: "no-repeat",
-													backgroundSize: "cover",
-													backgroundPosition: "center"
-											  }
-											: {
-													width: "300px",
-													height: "300px",
-													backgroundColor: "yellow",
-													backgroundImage: `url(/${image})`,
-													backgroundRepeat: "no-repeat",
-													backgroundSize: "cover",
-													backgroundPosition: "center",
-													marginRight: "24px"
-											  }
-									}
+									className={isNotMobile ? "imageBoxDesktop" : "imageBoxMobile"}
 								/>
 							) : (
 								<div
-									style={
-										isMobile || isMobileDevice
-											? {
-													width: "100%",
-													height: "100px",
-													backgroundColor: "yellow",
-													textAlign: "center",
-													display: "flex",
-													justifyContent: "center",
-													alignItems: "center"
-											  }
-											: {
-													width: "300px",
-													height: "300px",
-													backgroundColor: "yellow",
-													textAlign: "center",
-													display: "flex",
-													justifyContent: "center",
-													alignItems: "center",
-													marginRight: "24px"
-											  }
-									}>
+									className={isNotMobile ? "noImageDesktop" : "noImageMobile"}>
 									<p>No image</p>
 								</div>
 							)}
-							<div
-								style={
-									isMobileDevice || isMobile
-										? {}
-										: {
-												display: "flex",
-												justifyContent: "center",
-												flexDirection: "column",
-												width: "calc(100% - 300px)"
-										  }
-								}>
+							<div className={isNotMobile ? "textDesktop" : undefined}>
 								<h3
-									style={
-										isMobileDevice || isMobile
-											? {
-													display: "flex",
-													alignItems: "center",
-													marginTop: "16px",
-													marginBottom: "8px"
-											  }
-											: {
-													display: "flex",
-													alignItems: "center",
-													marginTop: "0",
-													marginBottom: "8px"
-											  }
-									}>
+									className={isNotMobile ? "headingDesktop" : "headingMobile"}>
 									{placeName}
 									{index === 0 && (
 										<Star
@@ -150,6 +64,89 @@ const List: React.FunctionComponent<Props> = ({scones}) => {
 								</p>
 								{note && note}
 							</div>
+							<style jsx>{`
+								.listStyleMobile {
+									border-bottom: ${index !== scones.length - 1
+										? "1px solid #444"
+										: "none"};
+									padding-bottom: 24px;
+									margin-bottom: 24px;
+									list-style: none;
+								}
+
+								.listStyleDesktop {
+									border-bottom: ${index !== scones.length - 1
+										? "1px solid #444"
+										: "none"};
+									padding-bottom: 24px;
+									margin-bottom: 24px;
+									list-style: none;
+									display: flex;
+								}
+
+								.imageBoxMobile {
+									width: 100%;
+									height: 300px;
+									background-color: yellow;
+									background-image: url(/${image});
+									background-repeat: no-repeat;
+									background-size: cover;
+									background-position: center;
+								}
+
+								.imageBoxDesktop {
+									width: 300px;
+									height: 300px;
+									background-color: yellow;
+									background-image: url(/${image});
+									background-repeat: no-repeat;
+									background-size: cover;
+									background-position: center;
+									margin-right: 24px;
+								}
+
+								.noImageMobile {
+									width: 100%;
+									height: 100px;
+									background-color: yellow;
+									text-align: center;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+								}
+
+								.noImageDesktop {
+									width: 300px;
+									height: 300px;
+									background-color: yellow;
+									text-align: center;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									margin-right: 24px;
+								}
+
+								.textDesktop {
+									display: flex;
+									justify-content: center;
+									flex-direction: column;
+									width: calc(100% - 300px);
+								}
+
+								.headingMobile {
+									display: flex;
+									align-items: center;
+									margin-top: 16px;
+									margin-bottom: 8px;
+								}
+
+								.headingDesktop {
+									display: flex;
+									align-items: center;
+									margin-top: 0;
+									margin-bottom: 8px;
+								}
+							`}</style>
 						</li>
 					)
 				)}
