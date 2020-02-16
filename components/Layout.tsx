@@ -136,13 +136,18 @@ const Layout: React.FunctionComponent<Props> = ({
 							style={{
 								display: "flex",
 								justifyContent: "space-between",
-								padding: "8px 16px",
+								padding: "16px",
 								alignItems: "center"
 							}}>
-							<Anchor href="/" label="Scone Hungus" />
-							<button onClick={toggleDrawer(true)}>
-								<Menu style={{marginBottom: "-2px"}} />
-							</button>
+							<Anchor
+								href="/"
+								label="Scone Hungus"
+								style={{fontSize: "20px"}}
+							/>
+							<Menu
+								style={{marginBottom: "-2px"}}
+								onClick={toggleDrawer(true)}
+							/>
 						</div>
 						<Drawer open={showSideMenu} onClose={toggleDrawer(false)}>
 							{sideMenu()}
