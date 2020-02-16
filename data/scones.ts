@@ -8,7 +8,7 @@ export const cheeseScones: Scone[] = [
 		image: "pravda-cheese.jpg",
 		rating: 5,
 		note:
-			"Best cheese scone in Wellington. Beautiful crispy outside with a pillow-like inside. The cheesy flavour is strong and upfront but without upsetting the balance of the scone.  Pravda sets the standard for what a cheese scone can be."
+			"Best cheese scone in Wellington. Beautiful crispy outside with a pillow-like inside. The cheesy flavour is strong and upfront but without upsetting the balance of the scone. Pravda sets the standard for what a cheese scone can be."
 	},
 	{
 		placeName: "Mojo Coffee",
@@ -101,6 +101,6 @@ export const nonCheeseScones: Scone[] = [
 		image: "leeds-street-bakery.jpg",
 		rating: 4.5,
 		note:
-			"Really nice sweet scone to have on Friday. It's got a very good nice and strong but wasn't fatiguing."
+			"Really nice sweet scone to have on Friday. It's got a very good nice and strong flavour but wasn't fatiguing. Thanks for the recommendation, Alan"
 	}
 ]
