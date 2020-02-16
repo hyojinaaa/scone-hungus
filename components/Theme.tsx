@@ -272,7 +272,7 @@ export const theme = {
     "textDecoration": "none",
     "fontWeight": 600,
     "color": {
-      "dark": "#4eadeb",
+      "dark": "#444",
       "light": "#0a466e"
     },
     "hover": {

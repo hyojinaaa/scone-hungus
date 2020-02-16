@@ -1,5 +1,5 @@
 import * as React from "react"
-import {Button, Anchor, Heading} from "grommet"
+import {Button, Anchor} from "grommet"
 import Layout from "../components/Layout"
 import Loader from "../components/Loader"
 import {NextPage} from "next"
@@ -32,7 +32,7 @@ const IndexPage: NextPage = () => {
 					color: "white",
 					padding: "48px 0"
 				}}>
-				<Heading>Scone Hungus</Heading>
+				<h1 style={{margin: "24px auto"}}>Scone Hungus</h1>
 
 				<p style={{padding: "0 16px"}}>
 					The most popular scone rating website in Wellington
