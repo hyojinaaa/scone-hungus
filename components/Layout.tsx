@@ -1,9 +1,11 @@
 import * as React from "react"
 import Head from "next/head"
-import {Grommet, Anchor, Accordion, AccordionPanel} from "grommet"
-import {useMediaQuery} from "react-responsive"
+import {Grommet, Anchor} from "grommet"
+import {Menu} from "grommet-icons"
+import Drawer from "@material-ui/core/Drawer"
 import {theme} from "./Theme"
 import {initGA, logPageView} from "../utils/analytics"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 type Props = {
 	title?: string
@@ -13,10 +15,9 @@ const Layout: React.FunctionComponent<Props> = ({
 	children,
 	title = "Scone Hungus"
 }) => {
-	const isDesktopOrLaptop = useMediaQuery({
-		query: "(min-device-width: 1224px)"
-	})
+	const isNotMobile = useMediaQuery("(min-width:600px)")
 	const [isGAInitialised, setIsGAInitialised] = React.useState(false)
+	const [showSideMenu, setShowSideMenu] = React.useState(false)
 
 	React.useEffect(() => {
 		if (!isGAInitialised) {
@@ -25,6 +26,74 @@ const Layout: React.FunctionComponent<Props> = ({
 		}
 		logPageView()
 	}, [])
+
+	const toggleDrawer = (open: boolean) => (
+		event: React.KeyboardEvent | React.MouseEvent
+	) => {
+		if (
+			event.type === "keydown" &&
+			((event as React.KeyboardEvent).key === "Tab" ||
+				(event as React.KeyboardEvent).key === "Shift")
+		) {
+			return
+		}
+
+		setShowSideMenu(open)
+	}
+
+	const sideMenu = () => (
+		<div
+			onClick={toggleDrawer(false)}
+			onKeyDown={toggleDrawer(false)}
+			style={{
+				width: "250px",
+				padding: "24px 32px 0 12px",
+				boxSizing: "border-box"
+			}}>
+			<Anchor
+				href="/"
+				label="Home"
+				style={{
+					padding: "8px 16px",
+					display: "block",
+					fontFamily: "Inconsolata, monospace",
+					color: "#444"
+				}}
+			/>
+			<Anchor
+				href="/cheese-scones"
+				label="Cheese scones"
+				style={{
+					padding: "8px 16px",
+					display: "block",
+					fontFamily: "Inconsolata, monospace",
+					color: "#444"
+				}}
+			/>
+			<Anchor
+				href="/non-cheese-scones"
+				label="Non-cheese scones"
+				style={{
+					padding: "8px 16px",
+					display: "block",
+					fontFamily: "Inconsolata, monospace",
+					color: "#444"
+				}}
+			/>
+			<Anchor
+				href="mailto:muffinseoul@gmail.com"
+				target="_blank"
+				rel="noopener"
+				label="Add my 2c"
+				style={{
+					padding: "8px 16px 16px",
+					display: "block",
+					fontFamily: "Inconsolata, monospace",
+					color: "#444"
+				}}
+			/>
+		</div>
+	)
 
 	return (
 		<Grommet theme={theme} full>
@@ -38,7 +107,7 @@ const Layout: React.FunctionComponent<Props> = ({
 				/>
 			</Head>
 			<header style={{padding: 0}}>
-				{isDesktopOrLaptop ? (
+				{isNotMobile ? (
 					<nav
 						style={{
 							margin: "16px 24px",
@@ -62,28 +131,23 @@ const Layout: React.FunctionComponent<Props> = ({
 						/>
 					</nav>
 				) : (
-					<Accordion>
-						<AccordionPanel label="Menu" style={{padding: "0 8px"}}>
-							<Anchor href="/" label="Home" style={{padding: "8px 16px"}} />
-							<Anchor
-								href="/cheese-scones"
-								label="Cheese scones"
-								style={{padding: "8px 16px"}}
-							/>
-							<Anchor
-								href="/non-cheese-scones"
-								label="Non-cheese scones"
-								style={{padding: "8px 16px"}}
-							/>
-							<Anchor
-								href="mailto:muffinseoul@gmail.com"
-								target="_blank"
-								rel="noopener"
-								label="Add my 2c"
-								style={{padding: "8px 16px 16px"}}
-							/>
-						</AccordionPanel>
-					</Accordion>
+					<>
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "space-between",
+								padding: "8px 16px",
+								alignItems: "center"
+							}}>
+							<Anchor href="/" label="Scone Hungus" />
+							<button onClick={toggleDrawer(true)}>
+								<Menu style={{marginBottom: "-2px"}} />
+							</button>
+						</div>
+						<Drawer open={showSideMenu} onClose={toggleDrawer(false)}>
+							{sideMenu()}
+						</Drawer>
+					</>
 				)}
 			</header>
 			<main style={{padding: "0"}}>{children}</main>

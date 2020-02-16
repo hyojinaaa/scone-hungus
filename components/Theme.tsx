@@ -273,7 +273,7 @@ export const theme = {
     "fontWeight": 600,
     "color": {
       "dark": "#444",
-      "light": "#0a466e"
+      "light": "#444"
     },
     "hover": {
       "textDecoration": "underline"
