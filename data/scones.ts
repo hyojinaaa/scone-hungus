@@ -70,6 +70,43 @@ export const cheeseScones: Scone[] = [
 		rating: 4.5,
 		note:
 			"Finding Starta was like finding a secret place in Wellington, so the atmosphere was great. In terms of the scone itself it was very good, and I will definitely go there. The best part was how they toasted it. It was very crispy and warm."
+	},
+	{
+		placeName: "Black Coffee Newtown",
+		placeAddress:
+			"https://www.google.com/maps/place/Black+Coffee/@-41.3120862,174.7795504,15z/data=!4m2!3m1!1s0x0:0xce09013661c7278f?sa=X&ved=2ahUKEwjmqvylmdDoAhW88HMBHTGfD2EQ_BIwCnoECBwQCA",
+		image: "black.jpg",
+		rating: 4,
+		note:
+			"I like the atmosphere of the cafe and scone. It wasn't too cheesy but not too plain. I enjoyed a lot. Recommended by Rosie."
+	},
+	{
+		placeName: "Mediterranean Foods Trattoria & Deli, Newtownn",
+		placeAddress:
+			"https://www.google.co.nz/maps/place/Mediterranean+Foods+Trattoria+%26+Deli,+Newtown/@-41.3134804,174.7822113,15z/data=!4m2!3m1!1s0x0:0x12aa45778f01bf90?sa=X&ved=2ahUKEwjatseendDoAhVR4zgGHZS2CPEQ_BIwCnoECBMQCA",
+		image: "mediterranean-foods.jpg",
+		flavour: "Zucchini and basil with cheese",
+		rating: 2.9,
+		note:
+			"Scone was served as cold. Basil flavour sounds very interesting but the scone wasn't very flavourful."
+	},
+	{
+		placeName: "The Lab Press Hall",
+		placeAddress:
+			"https://www.google.co.nz/maps/place/Press+Hall/@-41.2880899,174.7747477,15z/data=!4m2!3m1!1s0x0:0x79d300d7654ebbe5?sa=X&ved=2ahUKEwiom9SOndDoAhXByzgGHe9zBVQQ_BIwCnoECBEQCA",
+		image: "the-lab.jpg",
+		rating: 3,
+		note:
+			"It was not a bad scone but tasted quite similar with the scone from Legato Espresso Cafe. I guess maybe a lot of scones are made from the same bakery?"
+	},
+	{
+		placeName: "Legato Espresso Cafe",
+		placeAddress:
+			"https://www.google.com/maps/place/Legato+Espresso+Cafe/@-41.2872425,174.7779014,15z/data=!4m2!3m1!1s0x0:0x9196ce5cbb6cedcd?sa=X&ved=2ahUKEwjfuM3intDoAhVgyzgGHdhxBfEQ_BIwCnoECBsQCA",
+		image: "legato-espresso-coffee.jpg",
+		rating: 3,
+		note:
+			"It wasn't a bad scone but also not remarkable. It tastes pretty average. The texture was very bad but maybe because it was cold."
 	}
 ]
 
