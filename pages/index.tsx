@@ -6,12 +6,15 @@ import {NextPage} from "next"
 import {cheeseScones, nonCheeseScones} from "../data/scones"
 import {Scone} from "../interfaces"
 import {logEvent} from "../utils/analytics"
+import SconeHungusSpinner from "../components/SconeHungusSpinner"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 const IndexPage: NextPage = () => {
 	const sconeArray = [...cheeseScones, ...nonCheeseScones]
 	const scone = sconeArray[Math.floor(Math.random() * sconeArray.length)]
 	const [randomScone, setRandomScone] = React.useState<Scone | undefined>(scone)
 	const [loadingState, setLoadingState] = React.useState<boolean>(false)
+	const isNotMobile = useMediaQuery("(min-width:600px)")
 
 	const displayRandomScone = () => {
 		setLoadingState(true)
@@ -25,24 +28,32 @@ const IndexPage: NextPage = () => {
 
 	return (
 		<Layout title="Scone Hungus">
-			<div
-				style={{
-					textAlign: "center",
-					backgroundColor: "#444",
-					color: "white",
-					padding: "48px 0"
-				}}>
-				<h1 style={{margin: "24px auto"}}>Scone Hungus</h1>
+			<div className={isNotMobile ? "hero" : "heroMobile"}>
+				<div
+					className={
+						isNotMobile ? "sconeHungusWrapper" : "sconeHungusMobileWrapper"
+					}>
+					<SconeHungusSpinner spinDirection="clockwise" />
+				</div>
+				<div style={{maxWidth: "500px"}}>
+					<h1 style={{margin: "24px auto"}}>Scone Hungus</h1>
 
-				<p style={{padding: "0 16px"}}>
-					The most popular scone rating website in Wellington
-				</p>
+					<p style={{padding: "0 16px"}}>
+						The most popular scone rating website in Wellington
+					</p>
 
-				<Button
-					style={{backgroundColor: "white", margin: "24px auto"}}
-					label="Geeze at the cheese"
-					href="/cheese-scones"
-				/>
+					<Button
+						style={{backgroundColor: "white", margin: "24px auto"}}
+						label="Geeze at the cheese"
+						href="/cheese-scones"
+					/>
+				</div>
+				<div
+					className={
+						isNotMobile ? "sconeHungusWrapper" : "sconeHungusMobileWrapper"
+					}>
+					<SconeHungusSpinner spinDirection="nonClockwise" />
+				</div>
 			</div>
 			<div style={{borderBottom: "1px solid #444"}}>
 				<p
@@ -121,6 +132,34 @@ const IndexPage: NextPage = () => {
 				/>
 			</div>
 			<style jsx>{`
+				.hero {
+					display: flex;
+					flex-direction: row;
+					text-align: center;
+					background-color: #444;
+					color: white;
+					padding: 48px 16px;
+					width: 100%;
+					justify-content: space-between;
+					box-sizing: border-box;
+				}
+
+				.heroMobile {
+					display: flex;
+					flex-direction: column;
+					text-align: center;
+					background-color: #444;
+					color: white;
+					padding: 16px;
+					width: 100%;
+					justify-content: space-between;
+					box-sizing: border-box;
+				}
+
+				.sconeHungusMobileWrapper {
+					margin: 0 auto;
+				}
+
 				.randomSconeContainer {
 					max-width: 500px;
 					margin: 32px auto;
