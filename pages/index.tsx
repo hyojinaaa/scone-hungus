@@ -35,7 +35,7 @@ const IndexPage: NextPage = () => {
 					}>
 					<SconeHungusSpinner spinDirection="clockwise" />
 				</div>
-				<div style={{maxWidth: "500px"}}>
+				<div style={{maxWidth: "600px"}}>
 					<h1 style={{margin: "24px auto"}}>Scone Hungus</h1>
 
 					<p style={{padding: "0 16px"}}>
