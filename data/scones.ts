@@ -107,6 +107,50 @@ export const cheeseScones: Scone[] = [
 		rating: 3,
 		note:
 			"It wasn't a bad scone but also not remarkable. It tastes pretty average. The texture was very bad but maybe because it was cold."
+	},
+	{
+		placeName: "Milk Crate",
+		placeAddress:
+			"https://www.google.com/maps/place/Milk+Crate/@-41.2936364,174.7763679,15z/data=!4m2!3m1!1s0x0:0x7b2315ad2ae3ffa1?sa=X&ved=2ahUKEwiMga371NPrAhVkzTgGHXLXDT4Q_BIwHHoECBkQCA",
+		image: "milk-crate.jpg",
+		rating: 4.4,
+		note:
+			"It was the first scone that we had after lockdown. It was really tasty and well toasted. Nice and cheesy. I liked the crispy cheese on top a lot. The cafe itself was pretty cool and hipsterish. Thanks for the recommendation, Alan"
+	},
+	{
+		placeName: "Smith the Grocer Cafe",
+		placeAddress:
+			"https://www.google.com/maps/place/Smith+the+Grocer+Cafe/@-41.2861093,174.7762675,15z/data=!4m2!3m1!1s0x0:0x45bce346b7791dbd?sa=X&ved=2ahUKEwiJnMSq19PrAhXryDgGHVr3Dy8Q_BIwFXoECBsQCA",
+		image: "smith-the-grocer.jpg",
+		rating: 3.1,
+		note: "Satisfying but not revolutionary."
+	},
+	{
+		placeName: "Qilin Tea House",
+		placeAddress:
+			"https://www.google.com/maps/place/Qilin+Tea+House/@-41.2914778,174.7760265,15z/data=!4m2!3m1!1s0x0:0xde2f28e83ad3275d?sa=X&ved=2ahUKEwjt7Mmv2NPrAhXu4zgGHREJD-cQ_BIwC3oECBsQCA",
+		image: "qilin-tea-house.jpg",
+		rating: 3.7,
+		note:
+			"I was very looking forward to try a cheese scone from here cause I've heard lots of good stories about this place. It was good, and very crispy outside. Not cheesy though. I'll definitely go there again, but it wasn't very special."
+	},
+	{
+		placeName: "FRANK'S Terrace",
+		placeAddress:
+			"https://www.google.com/maps/place/FRANK'S+Terrace/@-41.28324,174.774651,15z/data=!4m2!3m1!1s0x0:0x468206ab06c8259?sa=X&ved=2ahUKEwjP-sHu2dPrAhWHyDgGHTk8CVoQ_BIwCnoECBoQCA",
+		image: "frank.jpg",
+		rating: 2.5,
+		note:
+			"Flavour and texture makes me think it's made with cheese powder, not real cheese."
+	},
+	{
+		placeName: "Preservatorium Cafe",
+		placeAddress:
+			"https://www.google.com/maps/place/Preservatorium+Cafe/@-41.2980642,174.7740011,15z/data=!4m2!3m1!1s0x0:0xd1355a22e7ba46bd?sa=X&ved=2ahUKEwiZgqiS2tPrAhUc4zgGHdW8DTAQ_BIwCnoECBsQCA",
+		image: "preservatorium.jpg",
+		rating: 3.9,
+		note:
+			"Very well toasted, nice and cheesy. They added bit of spring onions to cheese scone which was a good match with cheese flavour. Not only I enjoyed the scone, but also the atmosphere of the cafe and coffee was pretty awesome. That truly made my day. They also had some hot sauces that you can put on the scones."
 	}
 ]
 
